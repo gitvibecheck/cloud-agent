@@ -1,6 +1,7 @@
 import Array "mo:base/Array";
 import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
+import Nat64 "mo:base/Nat64";
 import Text "mo:base/Text";
 import Time "mo:base/Time";
 import Principal "mo:base/Principal";

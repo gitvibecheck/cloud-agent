@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "@dfinity/agent": "^0.18.2"
+    "@dfinity/agent": "^2.4.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

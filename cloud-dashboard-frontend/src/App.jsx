@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import StatTiles from './components/StatTiles';
 import Leaderboard from './components/Leaderboard';
 import Timeline from './components/Timeline';
-import { idlFactory } from '../declarations/cloud_dashboard/cloud_dashboard.did.js';
+import { idlFactory } from './declarations/cloud_dashboard/cloud_dashboard.did.js';
 
 function useDashboardActor() {
   const [actor, setActor] = useState(null);

@@ -1,0 +1,6 @@
+service : {
+  getTotalBurned: () -> (nat) query;
+  getTopBurners: () -> (vec record { principal; nat }) query;
+  getRecentBurnEvents: () -> (vec record { principal; nat; int }) query;
+  getTokenStats: () -> (record { price: float; marketCap: float; volume: float });
+}

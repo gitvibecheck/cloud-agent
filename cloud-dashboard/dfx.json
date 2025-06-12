@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "dfx": "0.17.0",
+  "canisters": {
+    "cloud_dashboard": {
+      "type": "motoko",
+      "main": "src/cloud_dashboard/main.mo",
+      "candid": "src/cloud_dashboard/cloud_dashboard.did",
+      "networking": {
+        "domains": [
+          "ic0.app",
+          "ic-api.internetcomputer.org",
+          "icpswap.com",
+          "api.icpswap.com",
+          "coingecko.com",
+          "api.coingecko.com"
+        ]
+      }
+    },
+    "cloud_dashboard_frontend": {
+      "type": "assets",
+      "source": ["../cloud-dashboard-frontend/dist"],
+      "build": "npm --prefix ../cloud-dashboard-frontend run build"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"]
+    }
+  }
+}

@@ -9,4 +9,3 @@ export const idlFactory = ({ IDL }) => {
     getTokenStats: IDL.Func([], [TokenStats], []),
   });
 };
-export const init = () => { return []; };

@@ -9,26 +9,6 @@ import ExperimentalCycles "mo:base/ExperimentalCycles";
 import IC "ic:aaaaa-aa";
 
 actor {
-  public type HttpHeader = { name : Text; value : Text };
-  public type HttpResponse = {
-    status : Nat;
-    headers : [HttpHeader];
-    body : Blob;
-  };
-  public type HttpRequestArgs = {
-    url : Text;
-    max_response_bytes : ?Nat64;
-    headers : [HttpHeader];
-    body : ?Blob;
-    method : { #get; #head; #post };
-    transform : ?{
-      function : shared query {
-        context : Blob;
-        response : HttpResponse;
-      } -> async HttpResponse;
-      context : Blob;
-    };
-  };
   public type Burner = {
     wallet : Principal;
     amount : Nat;
@@ -62,16 +42,10 @@ actor {
     volume : Float;
   };
 
-  public query func transform({
-    context : Blob;
-    response : HttpResponse;
-  }) : async HttpResponse {
-    { response with headers = [] };
   };
 
   public shared func getTokenStats() : async TokenStats {
     let url = "https://api.icpswap.com/token/price?symbol=CLOUD";
-    let req : HttpRequestArgs = {
       url = url;
       method = #get;
       headers = [{ name = "User-Agent"; value = "cloud-dashboard" }];
@@ -83,7 +57,6 @@ actor {
       };
     };
     ExperimentalCycles.add(200_000_000);
-    let resp : HttpResponse = await IC.http_request(req);
     let text = switch (Text.decodeUtf8(resp.body)) { case null ""; case (?t) t };
     // NOTE: Use simple parsing expecting JSON: {"price": 0.0, "marketCap": 0.0, "volume": 0.0}
     // This is placeholder parsing

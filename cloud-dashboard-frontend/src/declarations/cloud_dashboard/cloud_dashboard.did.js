@@ -9,8 +9,3 @@ export const idlFactory = ({ IDL }) => {
     getTokenStats: IDL.Func([], [TokenStats], []),
   });
 };
-<<<<<<< ckd8u7-codex/set-up-and-build-cloud-dashboard
-export const init = () => { return []; };
-=======
-export const init = ({ IDL }) => { return []; };
->>>>>>> main

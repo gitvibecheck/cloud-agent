@@ -9,13 +9,10 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-<<<<<<< ckd8u7-codex/set-up-and-build-cloud-dashboard
       globals: {
         ...globals.browser,
         ...globals.node,
       },
-      globals: globals.browser,
->>>>>>> main
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
